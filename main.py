@@ -17,7 +17,7 @@ KEY = "882QcNXV4tUZbvAsjmFOHqNC1LpcBRKW"
 API_KEY = "kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
 START = 0
 END = 0
-STEP = 250
+STEP = 200
 COOKIE = "zmp3_rqid=MHwxNC4xNjEdUngMTMdUngMjE4fG51WeBGx8MTYxNjk0NjYzOTk0Mw;Path=/;Domain=.zingmp3.vn;Expires=Tue, 01-Jun-2021 15:50:39 GMT;Max-Age=5616000"
 
 ##################################################################################
@@ -216,10 +216,9 @@ def process_id(prefix,id,cook):
         finally:
             #writeError("id-err.txt",obj)
             return id
-    except resquest.Timeout:
+    except :
         print("Timeout------------------------------")
-    except resquest.ConnectionError:
-        print("Connect ERR------------------------------")
+
         
     # finally:
     #     print("ERROR CC j do")
@@ -270,7 +269,7 @@ def Clone():
         threaded_process_range(STEP,list(range(START-STEP,START)))
         START-=STEP
         writeTotal(START)
-        #time.sleep(1)
+        time.sleep(1)
 
 if __name__ == "__main__":
     Clone()
